@@ -1,0 +1,32 @@
+
+window {
+  background-color: #24273a;
+  color: #cad3f5;
+  border-radius: 10px;
+  padding: 10px;
+  font-family: "JetBrains Mono";
+  font-size: 13px;
+}
+
+#entry {
+  padding: 5px;
+}
+
+#entry:selected {
+  background-color: #8aadf4;
+  color: #24273a;
+  border-radius: 5px;
+}
+
+#input {
+  margin: 10px;
+  padding: 5px;
+  border: none;
+  background-color: #1e2030;
+  color: #cad3f5;
+  border-radius: 5px;
+}
+
+#scroll {
+  padding: 5px;
+}
