@@ -1,0 +1,126 @@
+{
+  "margin": "5 20 0 20",
+  "modules-left": [
+    "custom/updates",
+    "hyprland/workspaces",
+    "custom/spotify",
+    "custom/cava"
+  ],
+  "modules-center": [
+    "clock"
+  ],
+  "modules-right": [
+    "network",
+    "pulseaudio",
+    "backlight",
+    "battery",
+    "custom/ytube",
+    "tray",
+    "custom/mic",
+    "custom/recorder"
+  ],
+  //***************************
+  //*  Modules configuration  *
+  //***************************
+  "custom/updates": {
+    "format": "   ",
+    "interval": 7200,
+    "on-click": "dolphin",
+    "signal": 8
+  },
+  "custom/mic": {
+    "format": "🎙️",
+    "interval": 1,
+    "on-click": "pactl set-source-mute @DEFAULT_SOURCE@ toggle",
+    "exec": "~/myDotfiles-v/scripts/mic.sh",
+    "tooltip": false
+  },
+  "custom/spotify": {
+    "format": "  {}",
+    "interval": 5,
+    "on-click": "flatpak run com.spotify.Client",
+    "exec": "~/.config/waybar/scripts/spotify.sh"
+  },
+  "hyprland/workspaces": {
+    "disable-scroll": true,
+    "rotate": 0,
+    "all-outputs": true,
+    "active-only": false,
+    "on-click": "activate",
+    // "disable-scroll": false,
+    "on-scroll-up": "hyprctl dispatch workspace -1",
+    "on-scroll-down": "hyprctl dispatch workspace +1",
+    "persistent-workspaces": {}
+  },
+  "clock": {
+    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+    "format": "{:%a | %d %b | %I:%M %p}"
+  },
+  "custom/cava": {
+    "format": "{}",
+    "exec": "~/.config/waybar/scripts/cava.sh"
+  },
+  "network": {
+    "format-wifi": "󰤨  {essid} ({signalStrength}%)",
+    "format-ethernet": "󰈁 Ethernet",
+    "format-disconnected": "󰤭 Disconnected",
+    "on-click": "/home/lostfromlight/.config/waybar/scripts/nmtui.sh"
+  },
+  "pulseaudio": {
+    "reverse-scrolling": 1,
+    "format": "{volume}% {icon}",
+    "format-bluetooth": "{volume}% {icon}",
+    "format-muted": " {format_source}",
+    "format-source-muted": "Mute 🚫",
+    "format-icons": {
+      "headphone": "",
+      "default": [
+        "🕨",
+        "🕩",
+        "🕪"
+      ]
+    },
+    "on-click": "pavucontrol",
+    "min-length": 13,
+  },
+  "backlight": {
+    "device": "intel_backlight",
+    "format": "{percent}% {icon}",
+    "format-icons": [
+      "🌑",
+      "🌒",
+      "🌓",
+      "🌔",
+      "🌕"
+    ],
+    "min-length": 5,
+  },
+  "battery": {
+    "states": {
+      "warning": 20,
+      "critical": 10,
+    },
+    "format": " {capacity}% {icon} ",
+    "format-charging": "{capacity}% ",
+    "format-plugged": "{capacity}% ",
+    "format-alt": "{time} {icon}",
+    "format-icons": [
+      "▁",
+      "▂",
+      "▃",
+      "▄",
+      "▅"
+    ],
+  },
+  "tray": {
+    "format": "\ueef8",
+    "icon-size": 16,
+    "spacing": 4
+  },
+  "custom/recorder": {
+    "exec": "~/.config/waybar/scripts/record-status.sh",
+    "interval": 1,
+    "on-click": "~/.config/waybar/scripts/toggle-record.sh",
+    "return-type": "json"
+  }
+}
