@@ -57,7 +57,9 @@ setup_prompt() {
 
     # Efficient single-line prompt (reduces terminal scrolling, better for laptops)
     # %n = username, %m = hostname, %~ = current directory with ~ substitution
-    PROMPT="${user_color}%n${reset}@${host_color}%m${reset}:${path_color}%~${reset}%# "
+    PROMPT="${user_color}%n${reset}་༘࿐${host_color}%m${reset}:${path_color}%~${reset}%# "
+
+    #
 
     # Minimal right prompt showing only exit status of last command
     # %? = exit status, only shown if non-zero (reduces visual clutter)
@@ -442,5 +444,4 @@ if [[ ~/.zshrc -nt ~/.zshrc.zwc ]]; then
     zcompile ~/.zshrc
 fi
 
-# Welcome message (comment out for faster startup)
-echo "🚀 Fedora power shell ready! Type 'sysinfo' for system status."
+stty -ixon

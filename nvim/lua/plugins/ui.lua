@@ -28,7 +28,7 @@ return {
           end,
         },
         view = "notify_send",
-        opts = { stop = false },
+        opts = { stop = true },
       })
 
       opts.commands = {
@@ -53,21 +53,21 @@ return {
     end,
   },
 
-  {
-    "rcarriga/nvim-notify",
-    opts = {
-      timeout = 5000,
-    },
-  },
+  -- {
+  --   "rcarriga/nvim-notify",
+  --   opts = {
+  --     timeout = 5000,
+  --   },
+  -- },
 
   {
     "snacks.nvim",
     opts = {
-      scroll = { enabled = false },
+      scroll = { enabled = true }, -- optional: keep scroll support
+      terminal = { enabled = false },
     },
-    keys = {},
+    keys = {}, -- remove default keymaps if you want custom ones
   },
-
   -- buffer line
   {
     "akinsho/bufferline.nvim",

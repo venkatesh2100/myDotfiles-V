@@ -1,8 +1,8 @@
 -- Keymaps are automatically loaded on the VeryLazy event
 -- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
 -- Add any additional keymaps here
-local discipline = require("extra.discipline")
-discipline.cowboy()
+-- local discipline = require("extra.discipline")
+-- discipline.cowboy()
 
 local keymap = vim.keymap
 local opts = { noremap = true, silent = true }
@@ -55,3 +55,17 @@ end, {})
 keymap.set("n", "<C-j>", function()
   vim.diagnostic.goto_next()
 end, opts)
+
+-- Keymap to toggle floating terminal
+vim.keymap.set("n", "<C-/>", function()
+  if os.getenv("TMUX") then
+    -- In TMUX: open a popup
+    vim.fn.system("tmux popup -w 80% -h 60% -E zsh")
+  else
+    -- Outside TMUX: fallback to toggleterm float
+    require("toggleterm").toggle(1, "float")
+  end
+end, { noremap = true, silent = true })
+
+-- Exit terminal mode quickly
+-- vim.keymap.set("t", "<esc><esc>", "<c-\\><c-n>", { noremap = true, silent = true })
