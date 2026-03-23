@@ -182,7 +182,7 @@ while getopts "iop:stq" opt; do
     )" \
       --title "Choose an output device" \
       --buttons "$(select_output | sed 's/$/;/')"); then
-      selected_output=$(select_output | rofi -dmenu -theme "notification")
+      selected_output=$(select_output | wofi -dmenu -theme "notification")
     fi
     select_output "${selected_output}"
     exit

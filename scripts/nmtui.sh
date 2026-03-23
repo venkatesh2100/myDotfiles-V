@@ -1,2 +1,7 @@
 #!/bin/bash
-kitty -e nmtui
+
+if pgrep -x "nmgui" >/dev/null; then
+  hyprctl dispatch focuswindow "nmgui"
+else
+  nmgui &
+fi

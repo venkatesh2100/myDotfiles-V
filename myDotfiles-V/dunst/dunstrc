@@ -1,0 +1,129 @@
+# Dunst notification daemon configuration
+# Merged config with HyDE project customizations and aesthetics
+
+[global]
+# Display and geometry
+monitor = 0
+follow = mouse
+enable_posix_regex = true
+width = 300
+origin = top-right
+offset = (20,20)
+scale = 0
+notification_limit = 20
+
+# Progress bar settings
+progress_bar = true
+progress_bar_height = 20
+progress_bar_frame_width = 0
+progress_bar_min_width = 125
+progress_bar_max_width = 250
+progress_bar_corner_radius = 4
+
+# Appearance
+transparency = 0
+separator_height = 2
+gap_size = 5
+padding = 8
+horizontal_padding = 8
+text_icon_padding = 10
+frame_width = 5
+frame_color = "#eba0ac"
+separator_color = auto
+sort = yes
+corner_radius = 12
+ignore_dbusclose = false
+force_xwayland = false
+force_xinerama = false
+indicate_hidden = yes
+
+# Text appearance
+font = Mononoki Nerd Font 10
+line_height = 3
+markup = full
+format = "%s\n%b"
+alignment = left
+vertical_alignment = center
+show_age_threshold = 60
+ellipsize = middle
+ignore_newline = no
+stack_duplicates = true
+hide_duplicate_count = false
+show_indicators = yes
+
+# Icon settings
+enable_recursive_icon_lookup = true
+icon_position = left
+min_icon_size = 64
+max_icon_size = 128
+
+# History
+sticky_history = yes
+history_length = 20
+
+# Misc
+browser = /usr/bin/xdg-open
+always_run_script = true
+title = Dunst
+class = Dunst
+
+# Mouse buttons
+mouse_left_click = context, close_current
+mouse_middle_click = do_action, close_current
+mouse_right_click = close_all
+
+# Experimental
+[experimental]
+per_monitor_dpi = true
+
+# App-specific icons (desktop entries)
+[slack]
+desktop_entry = "^Slack$"
+new_icon = slack
+
+[telegram]
+desktop_entry = "^Telegram Desktop$"
+new_icon = telegram-desktop
+
+[skype]
+desktop_entry = "^Skype$"
+new_icon = skype
+
+# Urgency-specific colors and timeout
+[urgency_low]
+background = "#6592A380"
+foreground = "#CCF1FFE6"
+frame_color = "#6592A303"
+timeout = 5
+
+[urgency_normal]
+background = "#3A4A6B80"
+foreground = "#CCDDFFE6"
+frame_color = "#3A4A6B03"
+timeout = 5
+
+[urgency_critical]
+background = "#f5e0dc"
+foreground = "#1e1e2e"
+frame_color = "#f38ba8"
+timeout = 0
+
+corner_radius = 10
+icon_corner_radius = 10
+dmenu = /usr/bin/rofi -config notification -dmenu -p dunst:
+# HyDE specific section (customization for your HyDE project)
+[HyDE]
+# This overrides the default config location and adds a dmenu rofi menu for actions
+
+# Custom types for notifications used by HyDE project
+[Type-1]
+appname = "HyDE Alert"
+format = "<b>%s</b>"
+
+[Type-2]
+appname = "HyDE Notify"
+format = "<span size='250%%'>%s</span>\n%b"
+
+# Override font in HyDE context
+[global]
+font = Cantarell 8

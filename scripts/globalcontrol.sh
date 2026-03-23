@@ -403,8 +403,8 @@ get_hyprConf() {
 
 }
 
-# rofi spawn location
-get_rofi_pos() {
+# wofi spawn location
+get_wofi_pos() {
     readarray -t curPos < <(hyprctl cursorpos -j | jq -r '.x,.y')
     eval "$(hyprctl -j monitors | jq -r '.[] | select(.focused==true) |
         "monRes=(\(.width) \(.height) \(.scale) \(.x) \(.y)) offRes=(\(.reserved | join(" ")))"')"
