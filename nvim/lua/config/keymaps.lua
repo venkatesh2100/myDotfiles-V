@@ -67,5 +67,18 @@ vim.keymap.set("n", "<C-/>", function()
   end
 end, { noremap = true, silent = true })
 
+vim.keymap.set("n", "<leader>cx", function()
+  vim.api.nvim_put({
+    "#include <bits/stdc++.h>",
+    "using namespace std;",
+    "",
+    "int main() {",
+    "    ios::sync_with_stdio(false);",
+    "    cin.tie(nullptr);",
+    "",
+    "    return 0;",
+    "}",
+  }, "l", true, true)
+end, { desc = "Insert CF template" })
 -- Exit terminal mode quickly
 -- vim.keymap.set("t", "<esc><esc>", "<c-\\><c-n>", { noremap = true, silent = true })
